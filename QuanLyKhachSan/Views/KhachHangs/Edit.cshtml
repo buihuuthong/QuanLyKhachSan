@@ -25,13 +25,8 @@
             </div>
             <div class="mb-3 col-md-6">
                 <label for="ngaysinh" class="form-label">Ngày Sinh</label>
-                <input
-                    class="form-control"
-                    type="text"
-                    id="ngaysinh"
-                    name="ngaysinh"
-                    asp-for="NgaySinh"
-                />
+                    <input asp-for="NgaySinh" class="form-control" />
+                    <span asp-validation-for="NgaySinh" class="text-danger"></span>
             </div>
             <div class="mb-3 col-md-6">
                 <label for="diachi" class="form-label">Địa Chỉ</label>
