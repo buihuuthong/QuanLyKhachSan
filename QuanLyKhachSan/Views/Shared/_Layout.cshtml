@@ -1,51 +1,312 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html 
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="~/"
+  data-template="vertical-menu-template-free"
+>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - QuanLyKhachSan</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+   <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Quản Lý Khách Sạn</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/img/favicon/TH.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="~/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="~/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="~/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="~/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="~/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="~/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="~/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="~/js/config.js"></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">QuanLyKhachSan</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="NhanViens" asp-action="Index">Nhân Viên</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - QuanLyKhachSan - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="app-brand-link">
+                <span class="app-brand-logo demo">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" zoomAndPan="magnify"
+                      viewBox="0 0 375 374.999991" height="500" preserveAspectRatio="xMidYMid meet" version="1.0">
+                      <defs>
+                        <g />
+                        <clipPath id="a861236fcd">
+                          <path
+                            d="M 56.488281 151.464844 L 318.238281 151.464844 L 318.238281 223.464844 L 56.488281 223.464844 Z M 56.488281 151.464844 "
+                            clip-rule="nonzero" />
+                        </clipPath>
+                        <clipPath id="10cc5ab0ac">
+                          <path
+                            d="M 63.558594 158.238281 L 187.332031 158.238281 L 187.332031 216.761719 L 63.558594 216.761719 Z M 63.558594 158.238281 "
+                            clip-rule="nonzero" />
+                        </clipPath>
+                      </defs>
+                      <g clip-path="url(#a861236fcd)">
+                        <path stroke-linecap="butt" transform="matrix(0.750202, 0, 0, 0.749268, 56.489269, 151.465449)" fill="none"
+                          stroke-linejoin="miter"
+                          d="M -0.00131637 -0.000808127 L 348.904932 -0.000808127 L 348.904932 96.092952 L -0.00131637 96.092952 L -0.00131637 -0.000808127 "
+                          stroke="#916dd5" stroke-width="6" stroke-opacity="1" stroke-miterlimit="4" />
+                      </g>
+                      <g clip-path="url(#10cc5ab0ac)">
+                        <path fill="#916dd5"
+                          d="M 63.558594 158.238281 L 188.035156 158.238281 L 188.035156 217.363281 L 63.558594 217.363281 Z M 63.558594 158.238281 "
+                          fill-opacity="1" fill-rule="nonzero" />
+                      </g>
+                      <g fill="#ffffff" fill-opacity="1">
+                        <g transform="translate(104.985663, 196.618259)">
+                          <g>
+                            <path
+                              d="M 7.613281 0 L 10.082031 0 L 10.082031 -17.300781 L 16.710938 -17.300781 L 16.710938 -19.660156 L 0.953125 -19.660156 L 0.953125 -17.300781 L 7.613281 -17.300781 Z M 7.613281 0 " />
+                          </g>
+                        </g>
+                      </g>
+                      <g fill="#ffffff" fill-opacity="1">
+                        <g transform="translate(124.80965, 196.618259)">
+                          <g>
+                            <path
+                              d="M 15.757812 0 L 18.230469 0 L 18.230469 -19.660156 L 15.757812 -19.660156 L 15.757812 -11.207031 L 5.335938 -11.207031 L 5.335938 -19.660156 L 2.863281 -19.660156 L 2.863281 0 L 5.335938 0 L 5.335938 -8.847656 L 15.757812 -8.847656 Z M 15.757812 0 " />
+                          </g>
+                        </g>
+                      </g>
+                      <g fill="#916dd5" fill-opacity="1">
+                        <g transform="translate(210.864174, 196.618259)">
+                          <g>
+                            <path
+                              d="M 6.769531 0 L 12.414062 0 L 12.414062 -14.410156 L 18.398438 -14.410156 L 18.398438 -19.660156 L 0.785156 -19.660156 L 0.785156 -14.410156 L 6.769531 -14.410156 Z M 6.769531 0 " />
+                          </g>
+                        </g>
+                      </g>
+                      <g fill="#916dd5" fill-opacity="1">
+                        <g transform="translate(230.041506, 196.618259)">
+                          <g>
+                            <path
+                              d="M 2.078125 0 L 15.871094 0 L 15.871094 -4.632812 L 7.695312 -4.632812 L 7.695312 -7.667969 L 14.800781 -7.667969 L 14.800781 -12.21875 L 7.695312 -12.21875 L 7.695312 -15.082031 L 15.558594 -15.082031 L 15.558594 -19.660156 L 2.078125 -19.660156 Z M 2.078125 0 " />
+                          </g>
+                        </g>
+                      </g>
+                      <g fill="#916dd5" fill-opacity="1">
+                        <g transform="translate(247.169134, 196.618259)">
+                          <g>
+                            <path
+                              d="M 0.140625 0 L 6.152344 0 L 7.21875 -2.78125 L 13.929688 -2.78125 L 15 0 L 21.039062 0 L 13.398438 -19.660156 L 7.78125 -19.660156 Z M 8.398438 -6.9375 L 10.589844 -13.03125 L 12.78125 -6.9375 Z M 8.398438 -6.9375 " />
+                          </g>
+                        </g>
+                      </g>
+                      <g fill="#916dd5" fill-opacity="1">
+                        <g transform="translate(268.340004, 196.618259)">
+                          <g>
+                            <path
+                              d="M 2.078125 0 L 7.695312 0 L 7.695312 -9.972656 L 11.488281 -4.664062 L 15.167969 -4.664062 L 18.929688 -9.941406 L 18.929688 0 L 24.546875 0 L 24.546875 -19.660156 L 19.941406 -19.660156 L 13.3125 -10.308594 L 6.714844 -19.660156 L 2.078125 -19.660156 Z M 2.078125 0 " />
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                </span>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-1">
+            <!-- Dashboard -->
+            <li class="menu-item active">
+              <a asp-area="" asp-controller="Home" asp-action="Index" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Trang chủ</div>
+              </a>
+            </li>
+
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div data-i18n="Account Settings">Quản Lý</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a asp-area="" asp-controller="NhanViens" asp-action="Index" class="menu-link">
+                    <div data-i18n="Staff">Nhân Viên</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div data-i18n="Room">Phòng</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div data-i18n="Client">Khách Hàng</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="pages-account-settings-connections.html" class="menu-link">
+                    <div data-i18n="Book Room">Đặt Phòng</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+           </ul>
+        </aside>
+    <div class="layout-page">
+        <nav
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            id="layout-navbar"
+          >
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                <i class="bx bx-menu bx-sm"></i>
+              </a>
+            </div>
+
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              <!-- Search -->
+              <div class="navbar-nav align-items-center">
+                <div class="nav-item d-flex align-items-center">
+                  <i class="bx bx-search fs-4 lh-0"></i>
+                  <input
+                    type="text"
+                    class="form-control border-0 shadow-none"
+                    placeholder="Search..."
+                    aria-label="Search..."
+                  />
+                </div>
+              </div>
+              <!-- /Search -->
+
+              <ul class="navbar-nav flex-row align-items-center ms-auto">
+
+                <!-- User -->
+                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                  <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                    <div class="avatar avatar-online">
+                      <img src="~/img/avatars/avatar.jpg" alt class="w-px-40 h-auto rounded-circle" />
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar avatar-online">
+                              <img src="~/img/avatars/avatar.jpg" alt class="w-px-40 h-auto rounded-circle" />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <span class="fw-semibold d-block">Bui Huu Thong</span>
+                            <small class="text-muted">Admin</small> 
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <i class="bx bx-user me-2"></i>
+                        <span class="align-middle">My Profile</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <i class="bx bx-cog me-2"></i>
+                        <span class="align-middle">Settings</span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="auth-login-basic.html">
+                        <i class="bx bx-power-off me-2"></i>
+                        <span class="align-middle">Log Out</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!--/ User -->
+              </ul>
+            </div>
+          </nav>
+        <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+            <footer class="content-footer footer bg-footer-theme">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0">
+                  ©
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  , made with ❤️ by
+                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">THtrueTeam</a>
+                </div>
+              </div>
+            </footer>
+            <div class="content-backdrop fade"></div>
         </div>
-    </footer>
+    </div>
+        </div>
+    </div>
+    <script src="~/vendor/libs/jquery/jquery.js"></script>
+    <script src="~/vendor/libs/popper/popper.js"></script>
+    <script src="~/vendor/js/bootstrap.js"></script>
+    <script src="~/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="~/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="~/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Main JS -->
+    <script src="~/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="~/js/dashboards-analytics.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
