@@ -13,6 +13,7 @@ namespace QuanLyKhachSan.Models
         }
 
         public int MaPhong { get; set; }
+        public string TenPhong { get; set; }
         public int MaLoaiPhong { get; set; }
         public int MaTinhTrang { get; set; }
 
