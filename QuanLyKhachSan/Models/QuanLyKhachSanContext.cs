@@ -61,7 +61,7 @@ namespace QuanLyKhachSan.Models
 
                 entity.ToTable("DatPhong");
 
-                entity.Property(e => e.MaDatPhong).ValueGeneratedNever();
+                entity.Property(e => e.MaDatPhong);
 
                 entity.Property(e => e.NgayBatDau).HasColumnType("date");
 
@@ -99,7 +99,7 @@ namespace QuanLyKhachSan.Models
 
                 entity.ToTable("KhachHang");
 
-                entity.Property(e => e.MaKhachHang).ValueGeneratedNever();
+                entity.Property(e => e.MaKhachHang);
 
                 entity.Property(e => e.DiaChi)
                     .IsRequired()
@@ -147,7 +147,7 @@ namespace QuanLyKhachSan.Models
 
                 entity.ToTable("NhanVien");
 
-                entity.Property(e => e.MaNhanVien).ValueGeneratedNever();
+                entity.Property(e => e.MaNhanVien);
 
                 entity.Property(e => e.DiaChi)
                     .IsRequired()
@@ -196,7 +196,7 @@ namespace QuanLyKhachSan.Models
 
                 entity.ToTable("Phong");
 
-                entity.Property(e => e.MaPhong).ValueGeneratedNever();
+                entity.Property(e => e.MaPhong);
 
                 entity.HasOne(d => d.MaLoaiPhongNavigation)
                     .WithMany(p => p.Phongs)
