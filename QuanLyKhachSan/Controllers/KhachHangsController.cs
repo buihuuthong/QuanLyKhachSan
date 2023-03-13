@@ -53,7 +53,7 @@ namespace QuanLyKhachSan.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MaKhachHang,HoTen,NgaySinh,DiaChi,Sdt,Email")] KhachHang khachHang)
+        public async Task<IActionResult> Create([Bind("HoTen,NgaySinh,DiaChi,Sdt,Email")] KhachHang khachHang)
         {
             if (ModelState.IsValid)
             {
