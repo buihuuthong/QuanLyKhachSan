@@ -9,23 +9,23 @@ using QuanLyKhachSan.Models;
 
 namespace QuanLyKhachSan.Controllers
 {
-    public class NhanViensController : Controller
+    public class PhongsController : Controller
     {
         private readonly QuanLyKhachSanContext _context;
 
-        public NhanViensController(QuanLyKhachSanContext context)
+        public PhongsController(QuanLyKhachSanContext context)
         {
             _context = context;
         }
 
-        // GET: NhanViens
+        // GET: Phongs
         public async Task<IActionResult> Index()
         {
-            var quanLyKhachSanContext = _context.NhanViens.Include(n => n.MaChucVuNavigation);
+            var quanLyKhachSanContext = _context.Phongs.Include(p => p.MaLoaiPhongNavigation).Include(p => p.MaTinhTrangNavigation);
             return View(await quanLyKhachSanContext.ToListAsync());
         }
 
-        // GET: NhanViens/Details/5
+        // GET: Phongs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,42 +33,45 @@ namespace QuanLyKhachSan.Controllers
                 return NotFound();
             }
 
-            var nhanVien = await _context.NhanViens
-                .Include(n => n.MaChucVuNavigation)
-                .FirstOrDefaultAsync(m => m.MaNhanVien == id);
-            if (nhanVien == null)
+            var phong = await _context.Phongs
+                .Include(p => p.MaLoaiPhongNavigation)
+                .Include(p => p.MaTinhTrangNavigation)
+                .FirstOrDefaultAsync(m => m.MaPhong == id);
+            if (phong == null)
             {
                 return NotFound();
             }
 
-            return View(nhanVien);
+            return View(phong);
         }
 
-        // GET: NhanViens/Create
+        // GET: Phongs/Create
         public IActionResult Create()
         {
-            ViewData["MaChucVu"] = new SelectList(_context.ChucVus, "MaChucVu", "TenChucVu");
+            ViewData["MaLoaiPhong"] = new SelectList(_context.LoaiPhongs, "MaLoaiPhong", "TenLoaiPhong");
+            ViewData["MaTinhTrang"] = new SelectList(_context.TinhTrangPhongs, "MaTinhTrang", "TenTinhTrang");
             return View();
         }
 
-        // POST: NhanViens/Create
+        // POST: Phongs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TaiKhoan,MatKhau,HoTen,NgaySinh,DiaChi,Sdt,Email,MaChucVu")] NhanVien nhanVien)
+        public async Task<IActionResult> Create([Bind("TenPhong,MaLoaiPhong,MaTinhTrang")] Phong phong)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(nhanVien);
+                _context.Add(phong);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MaChucVu"] = new SelectList(_context.ChucVus, "MaChucVu", "TenChucVu", nhanVien.MaChucVu);
-            return View(nhanVien);
+            ViewData["MaLoaiPhong"] = new SelectList(_context.LoaiPhongs, "MaLoaiPhong", "TenLoaiPhong", phong.MaLoaiPhong);
+            ViewData["MaTinhTrang"] = new SelectList(_context.TinhTrangPhongs, "MaTinhTrang", "TenTinhTrang", phong.MaTinhTrang);
+            return View(phong);
         }
 
-        // GET: NhanViens/Edit/5
+        // GET: Phongs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,23 +79,24 @@ namespace QuanLyKhachSan.Controllers
                 return NotFound();
             }
 
-            var nhanVien = await _context.NhanViens.FindAsync(id);
-            if (nhanVien == null)
+            var phong = await _context.Phongs.FindAsync(id);
+            if (phong == null)
             {
                 return NotFound();
             }
-            ViewData["MaChucVu"] = new SelectList(_context.ChucVus, "MaChucVu", "TenChucVu", nhanVien.MaChucVu);
-            return View(nhanVien);
+            ViewData["MaLoaiPhong"] = new SelectList(_context.LoaiPhongs, "MaLoaiPhong", "TenLoaiPhong", phong.MaLoaiPhong);
+            ViewData["MaTinhTrang"] = new SelectList(_context.TinhTrangPhongs, "MaTinhTrang", "TenTinhTrang", phong.MaTinhTrang);
+            return View(phong);
         }
 
-        // POST: NhanViens/Edit/5
+        // POST: Phongs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MaNhanVien,TaiKhoan,MatKhau,HoTen,NgaySinh,DiaChi,Sdt,Email,MaChucVu")] NhanVien nhanVien)
+        public async Task<IActionResult> Edit(int id, [Bind("MaPhong,TenPhong,MaLoaiPhong,MaTinhTrang")] Phong phong)
         {
-            if (id != nhanVien.MaNhanVien)
+            if (id != phong.MaPhong)
             {
                 return NotFound();
             }
@@ -101,12 +105,12 @@ namespace QuanLyKhachSan.Controllers
             {
                 try
                 {
-                    _context.Update(nhanVien);
+                    _context.Update(phong);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NhanVienExists(nhanVien.MaNhanVien))
+                    if (!PhongExists(phong.MaPhong))
                     {
                         return NotFound();
                     }
@@ -117,11 +121,12 @@ namespace QuanLyKhachSan.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MaChucVu"] = new SelectList(_context.ChucVus, "MaChucVu", "TenChucVu", nhanVien.MaChucVu);
-            return View(nhanVien);
+            ViewData["MaLoaiPhong"] = new SelectList(_context.LoaiPhongs, "MaLoaiPhong", "TenLoaiPhong", phong.MaLoaiPhong);
+            ViewData["MaTinhTrang"] = new SelectList(_context.TinhTrangPhongs, "MaTinhTrang", "TenTinhTrang", phong.MaTinhTrang);
+            return View(phong);
         }
 
-        // GET: NhanViens/Delete/5
+        // GET: Phongs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -129,31 +134,32 @@ namespace QuanLyKhachSan.Controllers
                 return NotFound();
             }
 
-            var nhanVien = await _context.NhanViens
-                .Include(n => n.MaChucVuNavigation)
-                .FirstOrDefaultAsync(m => m.MaNhanVien == id);
-            if (nhanVien == null)
+            var phong = await _context.Phongs
+                .Include(p => p.MaLoaiPhongNavigation)
+                .Include(p => p.MaTinhTrangNavigation)
+                .FirstOrDefaultAsync(m => m.MaPhong == id);
+            if (phong == null)
             {
                 return NotFound();
             }
 
-            return View(nhanVien);
+            return View(phong);
         }
 
-        // POST: NhanViens/Delete/5
+        // POST: Phongs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var nhanVien = await _context.NhanViens.FindAsync(id);
-            _context.NhanViens.Remove(nhanVien);
+            var phong = await _context.Phongs.FindAsync(id);
+            _context.Phongs.Remove(phong);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool NhanVienExists(int id)
+        private bool PhongExists(int id)
         {
-            return _context.NhanViens.Any(e => e.MaNhanVien == id);
+            return _context.Phongs.Any(e => e.MaPhong == id);
         }
     }
 }
