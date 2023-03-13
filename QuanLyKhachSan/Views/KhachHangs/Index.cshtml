@@ -18,7 +18,6 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Mã KH</th> 
                     <th>Họ Tên</th>
                     <th>Ngày Sinh</th>
                     <th>Địa Chỉ</th>
@@ -31,12 +30,6 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>
-                            <i class="fab fa-angular fa-lg text-danger me-3"></i>
-                            <strong>
-                                @Html.DisplayFor(modelItem => item.MaKhachHang)
-                            </strong>
-                        </td>
                         <td>
                             <i class="fab fa-angular fa-lg text-danger me-3"></i>
                             <strong>
