@@ -12,17 +12,17 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="row">
             <div class="mb-3 col-md-6">
-                <label for="taikhoan" class="form-label">Tên Phòng</label>
+                <label class="form-label">Tên Phòng</label>
                 <input asp-for="TenPhong" class="form-control" />
                 <span asp-validation-for="TenPhong" class="text-danger"></span>
             </div>
             <div class="mb-3 col-md-6"></div>
             <div class="mb-3 col-md-6">
-                <label for="taikhoan" class="form-label">Loại Phòng</label>
+                <label class="form-label">Loại Phòng</label>
                 <select asp-for="MaLoaiPhong" class ="form-control" asp-items="ViewBag.MaLoaiPhong"></select>
             </div>
             <div class="mb-3 col-md-6">
-                <label for="matkhau" class="form-label">Tình Trạng</label>
+                <label class="form-label">Tình Trạng</label>
                 <select asp-for="MaTinhTrang" class ="form-control" asp-items="ViewBag.MaTinhTrang"></select>
             </div>
         </div>

@@ -13,7 +13,7 @@
             <input type="hidden" asp-for="MaPhong" />
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label for="tenPhong" class="form-label">Tên Phòng</label>
+                    <label class="form-label">Tên Phòng</label>
                     <input
                         class="form-control"
                         type="text"
@@ -24,12 +24,12 @@
                 </div>
                 <div class="mb-3 col-md-6"></div>
                 <div class="mb-3 col-md-6">
-                    <label for="loaiPhong" class="form-label">Loại Phòng</label>
+                    <label class="form-label">Loại Phòng</label>
                     <select asp-for="MaLoaiPhong" class="form-control" asp-items="ViewBag.MaLoaiPhong"></select>
                     <span asp-validation-for="MaLoaiPhong" class="text-danger"></span>
                 </div>
                 <div class="mb-3 col-md-6">
-                    <label for="diachi" class="form-label">Tình Trạng Phòng</label>
+                    <label class="form-label">Tình Trạng Phòng</label>
                     <select asp-for="MaTinhTrang" class="form-control" asp-items="ViewBag.MaTinhTrang"></select>
                     <span asp-validation-for="MaTinhTrang" class="text-danger"></span>
                 </div>
